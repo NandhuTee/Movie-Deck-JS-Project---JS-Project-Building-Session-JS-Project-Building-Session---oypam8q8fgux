@@ -1,44 +1,79 @@
 
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset ="UTF-8">
-    <meta name="viewport" content="width=devicce-width,initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
-    <title>Movie Deck</title>
-</head>
-<body>
-    <header>
-        <a href="#" class="logo">Movie Deck</a>
-    </header>
+ <head>
+  <link rel="icon" href="./Screenshot 2024-01-11 193744.png" type="image/icon type">
+   <title>Movie Deck</title>
+   <link rel="stylesheet" href="./styles.css" />
+   <script src="https://kit.fontawesome.com/68129f478c.js" crossorigin="anonymous" defer></script>
+   <script src="./App.js" defer></script>
+ </head>
+ <body>
+   <header>
+     <a href="#">
+       <h1>Movie Deck</h1>
+     </a>
+   </header>
 
-    <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Search by name..." autocomplete="off";>
-        <button onclick="searchMovies()">Search</button>
-    </div>
 
-    <div class="sorting-options">
-        <button onclick="sortMoviesByDate()">Sort by date (oldest to latest)</button>
-        <button onclick="sortMoviesByRating()">Sort by rating (least to most)</button>
-    </div>
+   <div class="search-bar">
+     <input
+       type="search"
+       id="search-input"
+       placeholder="Search by name..."
+       autocomplete="off"
+     />
+     <button id="search-button">Search</button>
+   </div>
 
-    <div class="tabs">
-        <button class="tab active-tab" onclick="showAllMovies()">All</button>
-        <button class="tab" onclick="showFavoriteMovies()">Favorites</button>
-      </div>
 
-      <div class="movie-list" id="movieList">
-        <!-- Movie cards will be dynamically added here -->
-      </div>
-      
-    <div class="pagination">
-        <button onclick="previousPage()" disabled>Previous</button>
-        <span id="currentPage">Current Page: 1</span>
-        <button onclick="nextPage()">Next</button>
-    </div>
+   <div class="sorting-options">
+     <button id="sort-by-date">Sort by date (oldest to latest)</button>
+     <button id="sort-by-rating">Sort by rating (least to most)</button>
+   </div>
 
-    <footer>
-        <p>@ 2023 Movie Deck</p>
-    </footer>
-</body>
+
+   <div class="tabs">
+     <button id="all-tab" class="active-tab">All</button>
+     <button id="favorites-tab">Favorites</button>
+   </div>
+
+
+   <div class="movies-list-pagination">
+     <ul id="movies-list">
+       <li class="card">
+         <img
+           class="poster"
+           src="https://image.tmdb.org/t/p/original//6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg"
+           alt="The Lord of the Rings: The Fellowship of the Ring"
+         />
+         <p class="title">The Lord of the Rings</p>
+         <section class="vote-fav">
+           <section>
+             <p>Votes: 22873</p>
+             <p>Rating: 8.4</p>
+           </section>
+           <i class="fa-regular fa-heart fa-2xl fav-icon"></i>
+         </section>
+       </li>
+     </ul>
+
+
+     <div class="pagination">
+       <button id="prev-button">Previous</button>
+       <span id="current-button"
+         ><span id="currPage">1</span> of <span id="totalPage">1</span></span
+       >
+       <button id="next-button">Next</button>
+     </div>
+   </div>
+
+
+   <footer>
+     <p>&copy; 2024 Movie Deck</p>
+   </footer>
+
+
+   
+ </body>
 </html>

@@ -1,194 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap");
+
+
+* {
+ padding: 0;
+ margin: 0;
+ font-family: "Poppins", sans-serif;
+}
 
 body{
-    font-family:'Arial',sans-serif;
-    margin:0;
-    padding:0;
-    background-color:#f4f4f4;
+    background-color: black;
 }
 
-header{
-    background-color:#333;
-    color:#fff;
-    padding:10px;
-    text-align: center;
-}
-
-.logo{
-    text-decoration: none;
-    color:#fff;
-    font-size:24px;
-}
-
-.search-bar{
-    margin:20px 0;
-    text-align:center;
-}
-
-input{
-    padding:8px;
-    margin-right:8px;
-}
-
-button{
-    padding:8px 16px;
-    background-color:#333;
-    color:#fff;
-    cursor:pointer;
-}
-
-.sorting-options, .tabs, .pagination{
-    display: flex;
-    justify-content: center;
-    margin: 10px 0;
-  }
-
-  .tab{
-    padding:10px;
-    margin:0 5px;
-    cursor:pointer;
-  }
-  .tab .active-tab{
-    background-color:#333;
-    color:#fff;
-  }
-
-  .movie-list{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:space-around;
-  }
-
-  
-Creating a fully functional project with HTML, CSS, and JavaScript, including fetching data from an external API, sorting, searching, and pagination, is beyond the scope of a single response. However, I can provide you with a basic template to get you started. You can build upon this template and enhance it according to your requirements.
-
-index.html:
-
-html
-Copy code
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="script.js"></script>
-  <title>Movie Deck</title>
-</head>
-<body>
-
-  <header>
-    <a href="#" class="logo">Movie Deck</a>
-  </header>
-
-  <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Search by name..." autocomplete="off">
-    <button onclick="searchMovies()">Search</button>
-  </div>
-
-  <div class="sorting-options">
-    <button onclick="sortMoviesByDate()">Sort by date (oldest to latest)</button>
-    <button onclick="sortMoviesByRating()">Sort by rating (least to most)</button>
-  </div>
-
-  <div class="tabs">
-    <button class="tab active-tab" onclick="showAllMovies()">All</button>
-    <button class="tab" onclick="showFavoriteMovies()">Favorites</button>
-  </div>
-
-  <div class="movie-list" id="movieList">
-    <!-- Movie cards will be dynamically added here -->
-  </div>
-
-  <div class="pagination">
-    <button onclick="previousPage()" disabled>Previous</button>
-    <span id="currentPage">Current Page: 1</span>
-    <button onclick="nextPage()">Next</button>
-  </div>
-
-  <footer>
-    <p>© 2023 Movie Deck</p>
-  </footer>
-
-</body>
-</html>
-styles.css:
-
-css
-Copy code
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-}
 
 header {
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
+ background-color: #d21212;
+ color: white;
+ padding: 20px;
 }
 
-.logo {
-  text-decoration: none;
-  color: #fff;
-  font-size: 24px;
+
+header > a {
+ color: white;
+ text-decoration: none;
 }
+
+
+footer {
+ background-color: #d21212;
+ color: white;
+ padding: 10px;
+ text-align: center;
+}
+
 
 .search-bar {
-  margin: 20px 0;
-  text-align: center;
+ display: flex;
+ justify-content: center;
+ margin: 10px;
 }
 
-input {
-  padding: 8px;
-  margin-right: 8px;
+
+#search-input {
+ width: 300px;
+ height: 30px;
+ border: 1px solid #d21212;
+ border-radius: 5px;
+ margin-right: 10px;
+ padding: 0 7px;
 }
 
-button {
-  padding: 8px 16px;
-  background-color: #333;
-  color: #fff;
-  cursor: pointer;
+
+#search-button {
+ width: 100px;
+ height: 33px;
+ border: none;
+ border-radius: 5px;
+ cursor: pointer;
+ background-color: #d21212;
+ color: white;
 }
 
-.sorting-options, .tabs, .pagination {
-  display: flex;
-  justify-content: center;
-  margin: 10px 0;
+
+.sorting-options {
+ display: flex;
+ justify-content: center;
+ gap: 10px;
+ margin-bottom: 15px;
 }
 
-.tab {
-  padding: 10px;
-  margin: 0 5px;
-  cursor: pointer;
+
+#sort-by-date,
+#sort-by-rating {
+ width: 225px;
+ height: 30px;
+ border: none;
+ border-radius: 5px;
+ cursor: pointer;
+ background-color: #d21212;
+ color: white;
 }
 
-.tab.active-tab {
-  background-color: #333;
-  color: #fff;
+
+.tabs {
+ display: flex;
+ justify-content: flex-start;
+ gap: 10px;
+ margin-left: 40px;
 }
 
-.movie-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+
+#all-tab,
+#favorites-tab {
+ width: 100px;
+ height: 30px;
+ border: none;
+ border-radius: 5px;
+ cursor: pointer;
+ background-color: #d21212;
+ color: white;
 }
 
-.movie-card {
-  width: 200px;
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  background-color: #fff;
+
+.active-tab {
+ background-color: #d21212;
+ color: white;
 }
-.pagination button {
-    margin: 0 5px;
-  }
-  
-  footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-  }
+
+
+.pagination {
+ display: flex;
+ justify-content: center;
+ margin-bottom: 10px;
+}
+
+
+#prev-button,
+#current-button,
+#next-button {
+ border: none;
+ border-radius: 5px;
+ padding: 5px 5px;
+ margin: 0px 5px;
+ cursor: pointer;
+ background-color: #d21212;
+ color: white;
+}
+
+
+.card {
+ width: 210px;
+ height: 390px;
+ border: 1px solid black;
+ margin: 10px;
+ border-radius: 5px;
+ list-style-type: none;
+ background-color: #d21212;
+ color: white;
+ padding: 5px;
+ overflow: hidden;
+}
+
+
+.poster {
+ width: 200px;
+ height: 250px;
+ object-fit: cover;
+}
+
+
+.title {
+ font-size: 16px;
+ font-weight: bold;
+ text-align: center;
+ margin-bottom: 10px;
+}
+
+
+.vote-fav {
+ display: flex;
+ justify-content: space-around;
+}
+
+
+.fav-icon {
+ width: 20px;
+ height: 20px;
+ cursor: pointer;
+ display: flex;
+ margin-top: 20px;
+}
+
+
+.movies-list-pagination {
+ margin: 25px 70px;
+}
+
+
+#movies-list {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ padding: 20px 0;
+}
